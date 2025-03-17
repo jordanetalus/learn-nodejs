@@ -1,0 +1,15 @@
+{
+  "name": "projet-demo",
+  "version": "1.0.0",
+  "description": "demo utilisation npm",
+  "main": "index.js",
+  "scripts": {
+    "dev": "clear && nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jordane",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
