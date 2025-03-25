@@ -45,7 +45,25 @@ async function main(){
         firstname: "foko"
     });
     
-    console.log(alice,foko);
+    // console.log(alice,foko);
+
+    // await Post.create({
+    //     title: "nouvelle version nodejs",
+    //     content: "....",
+    //     status: "publier",
+    //     author: alice._id
+    // });
+
+    await Post.create({
+        title: "creation d'un formulaire html et intégré le css",
+        content: "....",
+        status: "brouillon",
+        author: foko._id
+    });
+
+    const post = await Post.find().populate('author');//utilisation de populate pour récupérer tous les informations de la référence 
+    console.log(post);
+
     mongoose.disconnect();
 }
     
