@@ -3,14 +3,21 @@ const User = require('./models/User');
 
 
 async function main(){
-    await mongoose.connect('mongodb://127.0.0.1/exemple-mongoose');// connexion à la bd
+    await mongoose.connect('mongodb://127.0.0.1/exemple-mongoose'); // connexion à la bd
 
     console.log('connexion ok');
 
-    const users = await User.find();// récupération des documents
+//    const user= await User.create({ // création d'un utilisateur 
+//         email: "junior@exemple.com",
+//         firstname: "foko",
+//         lastname: "junior",
+//         age: 22
+//     });
+
+    const users = await User.find(); // récupération des documents
     console.log(users);
 
-    const jordane = await User.findById('67e2ba8d5bc3a1fd931afc77');// récupération spécifique via l'id
+    const jordane = await User.findById('67e2ba8d5bc3a1fd931afc77'); // récupération spécifique via l'id
     console.log(jordane);
 
     const id ='67e2ba8d5bc3a1fd931afc77'; // update d'un document
@@ -18,12 +25,16 @@ async function main(){
         email: "jordanefossitalla@gmail.com",
     });
 
-    const rest = await User.updateMany(// update de plusieurs documents 
+    const rest = await User.updateMany( // update de plusieurs documents 
         {lastname:'jordane'},
         {firstname:'fossi talla'},
     );
 
     console.log(rest);
+
+
+    // await jordane.deleteOne();// suppression d'un document 
+
 
     mongoose.disconnect();
 }
