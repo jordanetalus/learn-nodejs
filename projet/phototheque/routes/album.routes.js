@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router(); 
-router.get('/albums/create', (req, res) => {
-    res.render('new_album', { title: 'Nouvel album' });
-});
+const albumController = require('../controllers/album.controller');
+
+router.get('/albums/create', albumController.createAlbumForm);
+
+router.post('/albums/create', albumController.createAlbum);
+
 
 module.exports = router; 
