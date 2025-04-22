@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/nav') %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Nouvel album</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <form method="post" action="/albums/create">
+                    <div class="form-group">
+                        <label for="albumTitle">Titre</label>
+                        <input type="text" id="albumTitle" name="albumTitle" 
+                               placeholder="Titre de votre nouvel album"
+                               autofocus class="form-control">
+                    </div>
+
+                    <% if (errorMessage) { %>
+                        <div class="alert alert-danger mt-4 mb-2" role="alert">
+                            <%= errorMessage %>
+                        </div>
+                    <% } %>
+
+                    <button type="submit" class="btn btn-primary mt-3">Créer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/script') %>
+</body>
+</html>
